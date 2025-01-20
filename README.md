@@ -44,3 +44,37 @@ $ pip3 install matplotlib
 * 1998 - Statistical Shape Analysis (I. Dryden, K.V. Mardia)
 * 2015 - Analyzing Fluctuating Asymmetry with Geometric Morphometrics (C.P. Klingenberg)
 
+
+
+## Setup and Running Tests for GPA on 3d Data
+
+#### 1. Clone the Repository
+
+```bash
+git clone <repository_url>
+cd <repository_folder>
+```
+
+#### 2. Set Up the Virtual Environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+.venv\Scripts\activate     # Windows
+```
+
+#### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 4. Run the Procrustes Analysis Test
+
+Place your 3D `.obj` files in the `test_files/` folder and run:
+
+```bash
+python3 test_3d.py
+```
+
+--- 
