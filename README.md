@@ -46,7 +46,7 @@ $ pip3 install matplotlib
 
 
 
-## Setup and Running Tests for GPA on 3d Data
+## Setup and Running Tests for GPA on 3D Data
 
 #### 1. Clone the Repository
 
@@ -74,7 +74,7 @@ pip install -r requirements.txt
 Place your 3D `.obj` files in the `test_files/` folder and run:
 
 ```bash
-python3 test_3d.py
+python3 run_3d.py
 ```
 
 --- 
