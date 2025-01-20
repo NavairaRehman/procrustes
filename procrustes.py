@@ -96,8 +96,8 @@ def avg(v):
 		r, s, t, _ = opa(v[i], v[j]) 
 
 		# Add up [A]ngle (scalar) from all [R]otations (matrix) carried against every other shape 
-		R[j] += np.arccos(min(1, max(-1, np.trace(r[:1])))) * np.sign(r[1][0]) 			
-
+		# R[j] += np.arccos(min(1, max(-1, np.trace(r[:1])))) * np.sign(r[1][0]) 			
+		R[j] += np.arccos(min(1, max(-1, np.trace(r[:3])))) * np.sign(r[1][0]) 			
 		# Get combined scale and translation values for every shape
 		S[j] += s 
 		T[j] += t 
@@ -107,7 +107,9 @@ def avg(v):
 
 		# Average rotation 'theta' angle for every shape and rebuild rotation matrix
 		a = R[i] / l
-		r = [np.cos(a), -np.sin(a)], [np.sin(a), np.cos(a)]
+		# r = [np.cos(a), -np.sin(a)], [np.sin(a), np.cos(a)]
+		r = np.array([[np.cos(a), -np.sin(a), 0], [np.sin(a), np.cos(a), 0], [0, 0, 1]])  # 3D rotation matrix in the Z-plane
+
 
 		# Transform shape collection (so we can compute the prototype average from it)
 		v[i] = v[i].dot(r) * (S[i] / l) + (T[i] / l) 
